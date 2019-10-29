@@ -10,7 +10,7 @@ export class Binder {
 
         for (const elem of bindedElemsContent) {
             const key = elem.dataset.bind;
-            elem.innerHTML = obj[key];
+            elem.innerHTML = obj[key] || '';
         }
 
         for (const elem of bindedElemsAttr) {
