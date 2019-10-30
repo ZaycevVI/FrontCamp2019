@@ -1,23 +1,10 @@
-import { ApiNewsFactory } from "./factory/api-news-factory";
-import { GeneratorFactory } from "./factory/generator-factory";
+import { NewsAction } from "./action/news-action";
+import { ComponentFactory } from "./factory/component-factory";
+import { ErrorGenerator } from "./component/error/error-generator";
 
 export class App {
-    constructor() {
-        this.apiNews = ApiNewsFactory.apiNews();
-        this.menu = GeneratorFactory.menuGenerator(_onMenuChanged.bind(this));
-        this.card = GeneratorFactory.cardGenerator();
+    start() {
+        ComponentFactory.newsComponent();
+        NewsAction.sourceInitialize();
     }
-
-    async start() {
-        const { sources } = await this.apiNews.getSources();
-        document.querySelector('.menu').appendChild(this.menu.html(sources));
-        _onMenuChanged.apply(this, [sources[0].id]);
-    }
-}
-
-async function _onMenuChanged(id) {
-    const { articles } = await this.apiNews.getArticles(id);
-    const cards = document.querySelector('.cards');
-    cards.innerHTML = '';
-    cards.appendChild(this.card.html(articles))
 }
