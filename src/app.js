@@ -1,5 +1,7 @@
 import { ApiNewsFactory } from "./factory/api-news-factory";
 import { GeneratorFactory } from "./factory/generator-factory";
+import ArrayPolyfill from './extensions/array-polyfill'
+
 
 export class App {
     constructor() {
@@ -11,7 +13,7 @@ export class App {
     async start() {
         const { sources } = await this.apiNews.getSources();
         document.querySelector('.menu').appendChild(this.menu.html(sources));
-        _onMenuChanged.apply(this, [sources[0].id]);
+        _onMenuChanged.apply(this, [sources.first().id]);
     }
 }
 

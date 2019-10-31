@@ -11,8 +11,7 @@ export class MenuGenerator extends HtmlGenerator {
 
     html(sources) {
         sources = sources.length > 10 ? sources.slice(0, 10) : sources;
-        const defaultItem = { ...sources[0] };
-        const menu = this.binder.bind(menuGeneratorHtml, defaultItem);
+        const menu = this.binder.bind(menuGeneratorHtml, sources.first());
         const items = sources.reduce((accum, item) => accum += this.binder.bind(menuItemHtml, item), '');
         const div = this.wrapDiv(menu);
         const dropDown = div.querySelector('.dropdown-content');
