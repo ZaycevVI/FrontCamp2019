@@ -4,7 +4,7 @@ import Html from '../../helper/html';
 import { HtmlRenderer } from "../../service/infrastructure/html-renderer";
 import { ComponentConverter } from "../../service/converter/component-converter";
 import articleStore from "../../store/article-store";
-import htmlBinder from "../../service/binder/html-binder-decorator";
+import htmlBinder from "../../service/binder/html-template-binder";
 
 export class CardGenerator extends HtmlGenerator {
     constructor(selector='.cards') {

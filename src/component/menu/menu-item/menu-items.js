@@ -1,7 +1,7 @@
 import HtmlGenerator from '../../infrastructure/html-generator';
 import menuItemHtml from './menu-item.html';
 import Html from '../../../helper/html';
-import htmlBinder from "../../../service/binder/html-binder-decorator";
+import htmlBinder from "../../../service/binder/html-template-binder";
 
 export class MenuItems extends HtmlGenerator {
     constructor(selector = '.dropdown-content') {

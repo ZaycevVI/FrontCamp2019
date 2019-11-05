@@ -2,7 +2,7 @@ import HtmlGenerator from '../../infrastructure/html-generator';
 import menuGeneratorHtml from './menu-generator.html';
 import Html from '../../../helper/html';
 import { MenuItems } from '../menu-item/menu-items';
-import htmlBinder from '../../../service/binder/html-binder-decorator';
+import htmlBinder from '../../../service/binder/html-template-binder';
 import sourceStore from '../../../store/source-store';
 import { HtmlRenderer } from '../../../service/infrastructure/html-renderer';
 import { ComponentConverter } from '../../../service/converter/component-converter';

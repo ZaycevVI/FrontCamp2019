@@ -1,6 +1,6 @@
 import HtmlGenerator from "../infrastructure/html-generator";
 import template from './error-generator.html';
-import htmlBinder from "../../service/binder/html-binder-decorator";
+import htmlBinder from "../../service/binder/html-template-binder";
 import Html from "../../helper/html";
 import errorStore from "../../store/error-store";
 import { HtmlRenderer } from "../../service/infrastructure/html-renderer";

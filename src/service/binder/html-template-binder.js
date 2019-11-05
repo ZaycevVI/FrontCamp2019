@@ -2,7 +2,7 @@ import { Singleton } from "../infrastructure/singleton";
 import { HtmlContentBinder } from "./html-content-binder";
 import { HtmlAttributeBinder } from "./html-attribute-binder";
 
-export class HtmlBinderDecorator {
+export class HtmlTemplateBinder {
     constructor(...binders) {
         this.binders = binders || [];
         this.parser = new DOMParser();
@@ -19,6 +19,6 @@ export class HtmlBinderDecorator {
     }
 }
 
-const htmlBinder = Singleton.instance(HtmlBinderDecorator).resolve(new HtmlContentBinder(), new HtmlAttributeBinder());
+const htmlBinder = Singleton.instance(HtmlTemplateBinder).resolve(new HtmlContentBinder(), new HtmlAttributeBinder());
 
 export default htmlBinder; 
