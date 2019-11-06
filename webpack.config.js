@@ -4,11 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
-const settings = {
-    development: './settings/settings.json',
-    production: './settings/settings.prod.json'
-};
+const globImporter = require('node-sass-glob-importer');
 
 module.exports = (env, options) => {
     const mode = options.mode || 'development';
@@ -16,7 +12,7 @@ module.exports = (env, options) => {
 
     return {
         mode: 'development',
-        entry: ['babel-polyfill', './src/index.js'],
+        entry: ['./src/extension/array-polyfill.js', 'babel-polyfill', './src/index.js'],
         output: {
             filename: 'main.js',
             path: path.resolve(__dirname, 'dist')
@@ -46,7 +42,14 @@ module.exports = (env, options) => {
                         // Translates CSS into CommonJS
                         'css-loader',
                         // Compiles Sass to CSS
-                        'sass-loader'
+                        {
+                            loader: 'sass-loader',
+                            options:{
+                                sassOptions: {
+                                  importer: globImporter()
+                                }
+                              }
+                        }
                     ]
                 },
                 {

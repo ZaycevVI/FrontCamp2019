@@ -1,0 +1,18 @@
+ .fakeimg {
+    width: 20%;
+    height: 20%;
+    margin-right: 20px;
+    float: left;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .card > .text:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
