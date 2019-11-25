@@ -14,7 +14,6 @@ class NewsController {
     }
 
     add(req, res) {
-        console.log(req.body);
         repository.add(new NewsModel(req.body))
             .then(() => res.sendStatus(200));
     }
