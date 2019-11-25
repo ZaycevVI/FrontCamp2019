@@ -17,7 +17,7 @@ class NewsRepository {
     }
 
     async remove(id) {
-        const news = jsonFile.read(this._path);
+        const news = await jsonFile.read(this._path);
         const result = news.filter(n => n.id != id);
 
         if (news.length !== result.length) {
