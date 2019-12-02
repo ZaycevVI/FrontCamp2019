@@ -1,3 +1,5 @@
 node_modules 
 package-lock.json
 dist
+nodejs-api/data/logger.json
+nodejs-api/data/news.json
