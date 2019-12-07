@@ -25,9 +25,9 @@ class NewsController {
         res.sendStatus(200);
     }
 
-    update(req, res) {
-        repository.update(new NewsModel(req.body))
-            .then(() => res.sendStatus(200));
+    async update(req, res) {
+        await repository.update(new NewsModel(req.body))
+        return res.sendStatus(200);
     }
 }
 

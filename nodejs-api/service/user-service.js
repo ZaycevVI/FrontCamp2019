@@ -5,7 +5,7 @@ const MongoClient = require('./mongo-client');
 
 class UserService extends MongoClient {
     constructor() {
-        super(config.userConnection);
+        super(config.connection);
     }
 
     async login(email, password) {

@@ -6,8 +6,8 @@ class MongoClient {
     }
 
     async execute(callback) {
-        mongoose.connect(this._connection, { useNewUrlParser: true });
         try {
+            await mongoose.connect(this._connection, { useNewUrlParser: true });
             return await callback();
         } finally {
             mongoose.disconnect();

@@ -9,7 +9,7 @@ function errorHandler(err, req, res, next) {
         msg = err.message || err;
     }
 
-    res.render('error', { error: msg });
+    res.json({ "message": msg });
 }
 
 module.exports = errorHandler;

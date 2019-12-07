@@ -9,15 +9,15 @@ class NewsRepository extends MongoClient {
     }
 
     async getAll() {
-        return this.execute(() => News.find({}).exec());
+        return await this.execute(() => News.find({}).exec());
     }
 
     async getById(id) {
-        return this.execute(() => News.findById(id).exec());
+        return await this.execute(() => News.findById(id).exec());
     }
 
     async add(news) {
-        return this.execute(() => News.create({
+        return await this.execute(() => News.create({
             title: news.title,
             author: news.author,
             description: news.description,
@@ -26,11 +26,11 @@ class NewsRepository extends MongoClient {
     }
 
     async remove(id) {
-        return this.execute(() => News.remove({ _id: id }).exec());
+        return await this.execute(() => News.remove({ _id: id }).exec());
     }
 
     async update(news) {
-        return this.execute(() => News.findByIdAndUpdate(news.id, news).exec());
+        return await this.execute(() => News.findByIdAndUpdate(news.id, news).exec());
     }
 }
 

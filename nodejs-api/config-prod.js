@@ -1,4 +1,4 @@
 module.exports = {
-    connection: "mongodb://localhost:27017/newsdb",
-    userConnection: "mongodb://localhost:27017/userdb"
+    connection: "mongodb+srv://nodejs:test@news-api-nodejs-bufsl.mongodb.net/test?retryWrites=true&w=majority",
+    prefix: "/.netlify/functions/index/api"
 };
