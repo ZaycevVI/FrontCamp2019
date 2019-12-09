@@ -1,7 +1,7 @@
 import { SEARCH_CONFIRMED } from "../search-criteria/actions";
 import { CHANGE_SORT_CRITERIA } from "../sort-criteria/actions"
 
-const sortDesc = (film1, film2, key) =>  {
+const sortDesc = (film1, film2, key) => {
     if (film1[key] > film2[key])
         return -1;
     else if (film1[key] < film2[key])

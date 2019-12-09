@@ -10,7 +10,7 @@ export default class SearchCriteria extends Component {
         return (
             <div className="sort-container">
                 <div className="film-info">
-                    {movieFound !== 0 && <span>{movieFound} movie found</span>}
+                    {movieFound !== 0 && <span>{movieFound} movies found</span>}
                 </div>
                 <div className="sort-criteria">
                     <span>Sort By: </span>

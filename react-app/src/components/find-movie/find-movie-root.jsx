@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import SearchCriteria from './search-criteria';
 import SortCriteria from './sort-criteria';
-import FilmContainer from './film-container';
+import MovieList from './movie-list';
 import { connect } from 'react-redux';
 import { changeSearchCriteria, searchConfirmed } from '../../store/find-movie/search-criteria/actions'
 import { changeSortCriteria } from '../../store/find-movie/sort-criteria/actions'
+import { searchMovieById } from '../../store/movie/movie-item/action'
 
 class FindMovieRoot extends Component {
+
+
     render() {
+        const { searchValue, sortCriteria, searchConfirmed, movieFound,
+            searchCriteria, searchMovieById, changeSearchCriteria,
+            changeSortCriteria, films } = this.props;
+
         return (
             <div>
-                <SearchCriteria value={this.props.searchValue}
-                    search={this.props.searchCriteria}
-                    sort={this.props.sortCriteria}
-                    changeCriteria={this.props.changeSearchCriteria}
-                    searchConfirmed={this.props.searchConfirmed} />
-                <SortCriteria criteria={this.props.sortCriteria}
-                    movieFound={this.props.movieFound}
-                    changeSort={this.props.changeSortCriteria} />
-                <FilmContainer films={this.props.films.data} />
+                <SearchCriteria value={searchValue}
+                    search={searchCriteria}
+                    sort={sortCriteria}
+                    changeCriteria={changeSearchCriteria}
+                    searchConfirmed={searchConfirmed} />
+                <SortCriteria criteria={sortCriteria}
+                    movieFound={movieFound}
+                    changeSort={changeSortCriteria} />
+                <MovieList films={films.data} searchMovie={searchMovieById} />
             </div>
         );
     }
@@ -37,7 +44,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     changeSearchCriteria,
     changeSortCriteria,
-    searchConfirmed
+    searchConfirmed,
+    searchMovieById
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FindMovieRoot);
