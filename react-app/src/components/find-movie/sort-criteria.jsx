@@ -8,16 +8,20 @@ export default class SearchCriteria extends Component {
     render() {
         const { criteria, movieFound } = this.props;
         return (
-            <div>
-                {movieFound !== 0 && <span>{movieFound} movie found</span>}
-                <span>Sort By</span>
-                {criteria.map((item, i) => (
-                    <div key={i} id={i}
-                        onClick={this.changeSortCriteria.bind(this)}
-                        className={item.active ? 'genre-active' : ''}>
-                        {item.text}
-                    </div>
-                ))}
+            <div className="sort-container">
+                <div className="film-info">
+                    {movieFound !== 0 && <span>{movieFound} movie found</span>}
+                </div>
+                <div className="sort-criteria">
+                    <span>Sort By: </span>
+                    {criteria.map((item, i) => (
+                        <button type="button" key={item.id} id={item.id}
+                            onClick={this.changeSortCriteria.bind(this)}
+                            className={`btn ${item.active ? 'btn-danger' : 'btn-secondary'}`}>
+                            {item.text}
+                        </button>
+                    ))}
+                </div>
             </div>
         );
     }

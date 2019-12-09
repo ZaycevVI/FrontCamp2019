@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class SearchCriteria extends Component {
     onCriteriaChange(event) {
@@ -18,24 +19,35 @@ export default class SearchCriteria extends Component {
     }
 
     render() {
-        const { value, search } = this.props;
-
+        const { search } = this.props;
         return (
-            <div>
-                <div>Find Your Movie</div>
+            <div className="search-container">
+                <span className="red-text"><b>netflix</b>roulette</span>
                 <div>
-                    <input ref="input" defaultValue={value} />
-                    <button onClick={this.onSearchSubmit.bind(this)}>Search</button>
-                </div>
-                <div>
-                    <span>Search by</span>
-                    {search.map((item, i) => (
-                        <div key={i} id={i}
-                            className={item.active ? 'genre-active' : ''}
-                            onClick={this.onCriteriaChange.bind(this)}>{item.text}</div>
-                    ))}
+                    <div className="search-input">
+                        <span className="white-text">Find Your Movie</span>
+                        <div className="input-group">
+                            <input ref="input" type="text" className="form-control" placeholder="Search film" />
+                            <div className="input-group-append">
+                                <button className="btn btn-danger" type="button" onClick={this.onSearchSubmit.bind(this)}>
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="search-criteria">
+                        <span className="white-text">Search by: </span>
+                        {search.map(item => (
+                            <button type="button" key={item.id} id={item.id}
+                                className={`btn ${(item.active ? 'btn-danger' : 'btn-secondary')}`}
+                                onClick={this.onCriteriaChange.bind(this)}>{item.text}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
+
+
         );
     }
 }

@@ -1,13 +1,13 @@
 import { CHANGE_SORT_CRITERIA } from "./actions";
 import { SEARCH_CONFIRMED } from "../search-criteria/actions";
 
-const getCriteria = (index = 0) => {
+const getCriteria = (id = 'release_date') => {
     const criteria = [
-        { id: "release_date", text: "Release Date" },
-        { id: "vote_average", text: "Rating" }
+        { id: "release_date", text: "Release Date", active: false },
+        { id: "vote_average", text: "Rating", active: false }
     ];
 
-    criteria[index].active = true;
+    criteria.find(item => item.id === id).active = true;
 
     return criteria;
 };

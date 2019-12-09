@@ -1,12 +1,12 @@
 import { CHANGE_SEARCH_CRITERIA } from "./actions";
 
-const getCriteria = (index = 0) => {
+const getCriteria = (id = "title") => {
     const criteria = [
-        { id: "title", text: "Title" },
-        { id: "genre", text: "Genre" }
+        { id: "title", text: "Title", active: false },
+        { id: "genres", text: "Genre", active: false }
     ];
 
-    criteria[index].active = true;
+    criteria.find(item => item.id === id).active = true;
 
     return criteria;
 };

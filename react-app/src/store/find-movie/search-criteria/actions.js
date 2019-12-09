@@ -14,7 +14,6 @@ export const searchConfirmed = (criteria) => (dispatch) => {
     filmService.search(criteria)
         .then(films => films.json())
         .then(films => {
-            console.log(films);
             dispatch({
                 type: SEARCH_CONFIRMED,
                 payload: films
