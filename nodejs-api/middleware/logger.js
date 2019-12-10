@@ -1,9 +1,3 @@
-const path = require('path');
-const util = require('util');
-const loggerPath = path.resolve(__dirname, '..', 'data', 'logger.json')
-const { appendFile } = require('fs');
-const appendFileAsync = util.promisify(appendFile);
-
 module.exports = function (req, res, next) {
     const logInfo = {
         date: Date.now(),
@@ -11,6 +5,6 @@ module.exports = function (req, res, next) {
         method: req.method
     }
 
-    appendFileAsync(loggerPath, JSON.stringify(logInfo));
+    console.log(logInfo);
     next()
 }

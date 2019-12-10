@@ -2,14 +2,26 @@
   "name": "node.js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lambda/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "cross-env NODE_ENV=development node app/index.js",
+    "build": "netlify-lambda build app"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^6.0.3",
+    "crypto": "^1.0.1",
     "ejs": "^2.7.4",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-session": "^1.17.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.13",
+    "netlify-lambda": "^1.6.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "save": "^2.4.0",
+    "serverless-http": "^2.3.0"
   }
 }

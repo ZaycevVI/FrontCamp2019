@@ -1,33 +1,34 @@
-const repository = require('../service/news-repository-file');
+const repository = require('../service/news-repository-mongo');
 const NewsModel = require('../data/model/news');
+const createProxy = require('../service/controller-proxy');
 
 class NewsController {
-    getAll(req, res) {
-        repository.getAll()
-            .then(data => res.send(data));
+    async getAll(req, res) {
+        const data = await repository.getAll();
+        res.send(data);
     }
 
-    getById(req, res) {
+    async getById(req, res) {
         const { id } = req.params;
-        repository.getById(id)
-            .then(data => res.send(data));
+        const data = await repository.getById(id)
+        res.send(data);
     }
 
-    add(req, res) {
-        repository.add(new NewsModel(req.body))
-            .then(() => res.sendStatus(200));
+    async add(req, res) {
+        const data = await repository.add(new NewsModel(req.body))
+        res.send(data);
     }
 
-    remove(req, res) {
+    async remove(req, res) {
         const { id } = req.params;
-        repository.remove(id)
-            .then(() => res.sendStatus(200));
+        await repository.remove(id)
+        res.sendStatus(200);
     }
 
-    update(req, res) {
-        repository.update(new NewsModel(req.body))
-            .then(() => res.sendStatus(200));
+    async update(req, res) {
+        await repository.update(new NewsModel(req.body))
+        return res.sendStatus(200);
     }
 }
 
-module.exports = new NewsController();
+module.exports = createProxy(new NewsController());

@@ -3,3 +3,4 @@ package-lock.json
 dist
 nodejs-api/data/logger.json
 nodejs-api/data/news.json
+nodejs-api/lambda
