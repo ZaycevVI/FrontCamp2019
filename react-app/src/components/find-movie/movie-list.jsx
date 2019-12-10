@@ -7,7 +7,8 @@ class MovieList extends Component {
         const push = this.props.history.push;
 
         this.props.searchMovie(id)
-            .then(() => push(`/film/${id}`));
+            .then(() => push(`/film/${id}`))
+            .then(() => window.scrollTo({ top: 0, behavior: "smooth"}));
     }
 
     render() {

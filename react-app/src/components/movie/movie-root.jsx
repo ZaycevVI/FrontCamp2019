@@ -3,6 +3,7 @@ import { MovieItem } from './movie-item';
 import MovieList from '../find-movie/movie-list';
 import { searchMovieById } from '../../store/movie/movie-item/action'
 import { connect } from 'react-redux';
+import { ErrorBoundary } from '../error/error-boundary';
 
 export class MovieRoot extends Component {
     componentDidMount() {
@@ -11,7 +12,6 @@ export class MovieRoot extends Component {
 
     render() {
         const { searchMovieById, film, films = [] } = this.props;
-        // this.props.searchMovieById(this.props.match.params.id);
 
         return this.props.film ? (
             <div>
@@ -19,7 +19,9 @@ export class MovieRoot extends Component {
                     <div id="netflixLabel"><b>netflix</b>roulette</div>
                     <div className="search-icon" onClick={() => this.props.history.push('/')}></div>
                 </header>
-                <MovieItem film={film} />
+                <ErrorBoundary>
+                    <MovieItem film={film} />
+                </ErrorBoundary>
 
                 <div className="sort-container">Films by {film.genres[0]} genre</div>
                 {films.length !== 0 && <MovieList films={films} searchMovie={searchMovieById} />}

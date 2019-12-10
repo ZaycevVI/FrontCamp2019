@@ -64,7 +64,7 @@
   font-size: 12px;
 }
 
-.movie-item img:hover {
+.movie-item img:hover, .btn:hover {
   cursor: pointer;
 }
 
@@ -124,6 +124,10 @@ header {
 .movie-detailed .budget {
   color: #f65261;
   font-size: 20px;
+}
+
+.movie-detailed .info {
+  max-width: 400px;
 }
 
 .movie-detailed .date {
