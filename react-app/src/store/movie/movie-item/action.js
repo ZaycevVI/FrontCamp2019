@@ -1,7 +1,6 @@
 import filmService from '../../../api/film-service'
 
 export const SEARCH_MOVIE_BY_ID = 'SEARCH_MOVIE_BY_ID';
-export const MOVIES_NOT_FOUND = 'MOVIES_NOT_FOUND';
 
 export const searchMovieById = (id) => (dispatch) => {
     let film;

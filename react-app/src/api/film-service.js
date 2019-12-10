@@ -4,8 +4,6 @@ class FilmService {
     }
 
     async search({ search /* title/genre */, value, sort }) {
-        
-        console.log()
         return await fetch(`${this.url}?searchBy=${search}&search=${value}&sortBy=${sort}&limit=50&sortOrder=desc`);
     }
 
