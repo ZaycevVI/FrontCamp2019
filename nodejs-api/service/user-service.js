@@ -3,15 +3,15 @@ const Users = require('../data/model/user');
 const UnauthorizedError = require('express-jwt').UnauthorizedError;
 const MongoClient = require('./mongo-client');
 
-class UserService extends MongoClient {
-    constructor() {
-        super(config.connection);
+class UserService {
+    constructor(client) {
+        this.client = client;
     }
 
     async login(email, password) {
         this._validate(email, password);
 
-        return await this.execute(async () => {
+        return await this.client.execute(async () => {
             const user = await Users.findOne({ email }).exec();
             if (!user || !user.validatePassword(password))
                 throw new UnauthorizedError('credentials_bad_scheme', { message: 'Invalid credentials.' })
@@ -23,7 +23,7 @@ class UserService extends MongoClient {
     async registration(email, password) {
         this._validate(email, password);
 
-        return await this.execute(async () => {
+        return await this.client.execute(async () => {
             const existingUser = await Users.findOne({ email }).exec();
 
             if (existingUser) {
@@ -48,4 +48,4 @@ class UserService extends MongoClient {
     }
 }
 
-module.exports = new UserService();
+module.exports = new UserService(new MongoClient(config.connection));
