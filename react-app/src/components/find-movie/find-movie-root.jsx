@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchCriteria from './search-criteria';
 import SortCriteria from './sort-criteria';
 import MovieList from './movie-list';
@@ -7,28 +7,26 @@ import { changeSearchCriteria, searchConfirmed } from '../../store/find-movie/se
 import { changeSortCriteria } from '../../store/find-movie/sort-criteria/actions'
 import { searchMovieById } from '../../store/movie/movie-item/action'
 
-class FindMovieRoot extends Component {
-
-
-    render() {
-        const { searchValue, sortCriteria, searchConfirmed, movieFound,
-            searchCriteria, searchMovieById, changeSearchCriteria,
-            changeSortCriteria, films } = this.props;
-
-        return (
-            <div>
-                <SearchCriteria value={searchValue}
-                    search={searchCriteria}
-                    sort={sortCriteria}
-                    changeCriteria={changeSearchCriteria}
-                    searchConfirmed={searchConfirmed} />
-                <SortCriteria criteria={sortCriteria}
-                    movieFound={movieFound}
-                    changeSort={changeSortCriteria} />
-                <MovieList films={films.data} searchMovie={searchMovieById} />
-            </div>
-        );
-    }
+const FindMovieRoot = ({ 
+    searchValue, sortCriteria, 
+    searchConfirmed, movieFound,
+    searchCriteria, searchMovieById, 
+    changeSearchCriteria,
+    changeSortCriteria, films }) => {
+        
+    return (
+        <div>
+            <SearchCriteria value={searchValue}
+                search={searchCriteria}
+                sort={sortCriteria}
+                changeCriteria={changeSearchCriteria}
+                searchConfirmed={searchConfirmed} />
+            <SortCriteria criteria={sortCriteria}
+                movieFound={movieFound}
+                changeSort={changeSortCriteria} />
+            <MovieList films={films.data} searchMovie={searchMovieById} />
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => {

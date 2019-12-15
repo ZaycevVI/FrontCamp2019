@@ -5,7 +5,7 @@ export default class SearchCriteria extends Component {
         this.props.changeCriteria(event.target.id);
     }
 
-    onSearchSubmit() {
+    search() {
         let { search, sort } = this.props;
         search = search.find(i => i.active);
         sort = sort.find(i => i.active);
@@ -17,6 +17,12 @@ export default class SearchCriteria extends Component {
         });
     }
 
+    onInputSubmit(e) {
+        if (e.keyCode === 13) {
+            this.search();
+        }
+    }
+
     render() {
         const { search } = this.props;
         return (
@@ -26,9 +32,9 @@ export default class SearchCriteria extends Component {
                     <div>
                         <div className="search-input">
                             <div className="input-group">
-                                <input ref="input" type="text" className="form-control" placeholder="Find Your Movie" />
+                                <input onKeyUp={this.onInputSubmit.bind(this)} ref="input" type="text" className="form-control" placeholder="Find Your Movie" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-danger" type="button" onClick={this.onSearchSubmit.bind(this)}>
+                                    <button className="btn btn-danger" type="button" onClick={this.search.bind(this)}>
                                         Search
                                 </button>
                                 </div>

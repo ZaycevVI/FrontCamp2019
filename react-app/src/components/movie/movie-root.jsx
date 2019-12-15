@@ -6,9 +6,13 @@ import { connect } from 'react-redux';
 import { ErrorBoundary } from '../error/error-boundary';
 
 export class MovieRoot extends Component {
-    componentDidMount() {
+    useEffect() {
         this.props.searchMovieById(this.props.match.params.id);
     }
+
+    // componentDidMount() {
+    //     this.props.searchMovieById(this.props.match.params.id);
+    // }
 
     render() {
         const { searchMovieById, film, films = [] } = this.props;
