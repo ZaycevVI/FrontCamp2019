@@ -1,0 +1,152 @@
+#netflixLabel {
+  margin-left: 15px;
+  color:red;
+}
+
+
+.sort-container {
+  background-color: #555555;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.search-criteria, .sort-criteria {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.search-input {
+  margin: 10px 0;
+}
+
+.sort-criteria > * {
+  padding: 0 10px;
+}
+
+.search-criteria > * {
+  padding-right: 10px;
+}
+
+.search-container {
+  padding: 5% 15%;
+  background-size: 100%;
+}
+
+.movie-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie-container h3 {
+  margin-top: 150px;
+}
+
+.movie-item__title {
+  margin-top: 5px;
+  word-wrap: break-word;
+}
+
+.movie-item__release {
+  border: solid 0.5px white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.movie-item {
+  margin: 20px;
+  font-size: 12px;
+}
+
+.movie-item img:hover, .btn:hover {
+  cursor: pointer;
+}
+
+.movie-item > img{
+  width: 375px;
+  height: 560px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.movie-item__info {
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-item-text {
+  max-width: 70%;
+}
+
+.movie-detailed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-detailed > * {
+  margin: 30px;
+}
+
+.movie-detailed > img {
+  width: 450px;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.movie-detailed .title {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.movie-detailed .rating {
+  border: 1px solid white;
+  padding: 10px;
+  color: #a1e66f;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-detailed .budget {
+  color: #f65261;
+  font-size: 20px;
+}
+
+.movie-detailed .info {
+  max-width: 400px;
+}
+
+.movie-detailed .date {
+  color: #f65261;
+  font-size: 20px;
+  padding-right: 100px;
+}
+
+.info > div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-icon {
+  background: url('../public/search.png') no-repeat;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  cursor: pointer;
+}
